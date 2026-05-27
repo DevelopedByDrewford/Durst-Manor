@@ -106,6 +106,27 @@ main {
     background-position: cover; 
 }
 
+/* Skeleton Loader */
+.img-skeleton {
+    display: inline-block;
+    height: 300px;
+    width: 220px;
+    border-radius: 5px;
+    background: linear-gradient(
+        90deg,
+        rgba(35, 33, 33, 0.9) 25%,
+        rgba(65, 60, 60, 0.8) 50%,
+        rgba(35, 33, 33, 0.9) 75%
+    );
+    background-size: 300% 100%;
+    animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+    0%   { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -189,6 +210,11 @@ footer {
     #img-container img {
         height: 165px;
         max-width: 90%;
+    }
+
+    .img-skeleton {
+        height: 165px;
+        width: 140px;
     }
 
     #inventory-box {

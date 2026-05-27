@@ -119,9 +119,23 @@ function showTextNode(textNodeIndex)
     imgContainer.innerHTML = ''
 
     if (textNode.img) {
+        // Show skeleton while image loads
+        const skeleton = document.createElement('div')
+        skeleton.classList.add('img-skeleton')
+        imgContainer.appendChild(skeleton)
+
         let nodeImg = document.createElement('img')
+        nodeImg.style.display = 'none'
         nodeImg.setAttribute('src', textNode.img)
         nodeImg.setAttribute('alt', textNode.imgAlt)
+        nodeImg.addEventListener('load', () => {
+            skeleton.remove()
+            nodeImg.style.display = ''
+        })
+        nodeImg.addEventListener('error', () => {
+            skeleton.remove()
+            nodeImg.style.display = ''
+        })
         imgContainer.appendChild(nodeImg)
     }
 
