@@ -106,12 +106,28 @@ main {
     background-position: cover; 
 }
 
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Prompts */
 #text {
     font-family: "Sedan SC", serif;
     color: #ffdba7;
     font-size: 1.25rem;
     text-shadow: 3px 3px 3px black;
+}
+
+#text.animate {
+    animation: fadeInUp 0.4s ease both;
 }
 
 .btn-grid {
@@ -136,6 +152,7 @@ main {
     background-image: linear-gradient(rgba(119, 31, 9, 0.95), rgba(119, 31, 9, 0.95)),
         url("https://i.imgur.com/JCdAfXT.png");
     background-position: cover;
+    animation: fadeInUp 0.35s ease both;
 }
 
 .btn:hover {

@@ -17,7 +17,7 @@ const statDisplay = document.getElementById('stat')
 
 // Display Selected Stat 
 function updateStatDisplay(obj) {
-    console.log('updating stat')
+    // console.log('updating stat')
     if ('strength' in obj) {
         statDisplay.innerText = 'Strength'
     } else if ('dexterity' in obj) {
@@ -51,7 +51,7 @@ function updateInvDisplay(obj) {
     // rm the first index from state obj (chosen stat)
     inventory.shift()
 
-    console.log(state)
+    // console.log(state)
 
     // clear inventory to avoid duplication
     invBox.innerHTML = ''
@@ -96,7 +96,7 @@ function updateInvDisplay(obj) {
         })
         // if no inventory
     } else {
-        console.log('awaiting inventory')
+        // console.log('awaiting inventory')
     }
 }
 
@@ -107,6 +107,11 @@ function showTextNode(textNodeIndex)
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     // Display the current prompt on the screen
     textElement.innerText = textNode.text
+
+    // Re-trigger fade-in animation on the prompt
+    textElement.classList.remove('animate')
+    void textElement.offsetWidth // force reflow
+    textElement.classList.add('animate')
 
 
     // display img for each textNode
@@ -129,10 +134,11 @@ function showTextNode(textNodeIndex)
         optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
     // object objects
-    textNode.options.forEach(option => 
+    let btnIndex = 0
+    textNode.options.forEach(option =>
         {
             // use the options provided by the object
-            if (showOption(option)) 
+            if (showOption(option))
                 {
                     // create a variable for a new button
                     const button = document.createElement('button')
@@ -140,7 +146,10 @@ function showTextNode(textNodeIndex)
                     button.innerText = option.text
                     // add the new button
                     button.classList.add('btn')
-                    // when the button is clicked 
+                    // stagger button animations: prompt lands first, then buttons cascade in
+                    button.style.animationDelay = `${0.15 + btnIndex * 0.09}s`
+                    btnIndex++
+                    // when the button is clicked
                     button.addEventListener('click', () => selectOption(option))
                     // add the button
                     optionButtonsElement.appendChild(button)
