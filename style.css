@@ -158,11 +158,10 @@ footer {
 /* mobile version */
 @media (max-width: 850px) {
     main {
-        width: 380px;
+        width: 95vw;
     }
 
     #all-img-box {
-        background-color: red;
         height: 275px;
     }
 
@@ -172,11 +171,11 @@ footer {
 
     #img-container img {
         height: 165px;
-        max-width: 340px;
+        max-width: 90%;
     }
 
     #inventory-box {
-        width: 370px;
+        width: calc(100% - 20px);
     }
 
     #inv-label {
@@ -188,9 +187,9 @@ footer {
         grid-template-columns: repeat(1, auto);
         gap: 10px;
     }
-    
+
     .btn {
-        width: 340px;
+        width: 100%;
         text-shadow: 1px 1px 1px black;
     }
 
