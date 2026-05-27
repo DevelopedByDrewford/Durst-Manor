@@ -65,8 +65,9 @@ main {
 }
 
 #img-container img {
+    width: 460px;
     height: 300px;
-    max-height: 300px;
+    object-fit: cover;
     border-radius: 5px;
     filter: grayscale(80%);
     box-shadow: 4px 4px 10px 2px;
@@ -109,8 +110,8 @@ main {
 /* Skeleton Loader */
 .img-skeleton {
     display: inline-block;
+    width: 460px;
     height: 300px;
-    width: 220px;
     border-radius: 5px;
     background: linear-gradient(
         90deg,
@@ -208,13 +209,15 @@ footer {
     }
 
     #img-container img {
+        width: 253px;
         height: 165px;
         max-width: 90%;
     }
 
     .img-skeleton {
+        width: 253px;
         height: 165px;
-        width: 140px;
+        max-width: 90%;
     }
 
     #inventory-box {
